@@ -14,8 +14,6 @@
     <div class = "jumbotron text-center">
         <h1>The Force is strong with this one....</h1>
 {#        <p>Planet:  {{planet_name}}</p>#}
-
-{#        <p>Length of {{ship_name}}:  {{ship_length}}</p>#}
         <h3>List of Planets</h3>
         {% for planet in planets %}
             <p>Planet:  {{planet.name}}</p>
@@ -25,6 +23,22 @@
         {% for person in people %}
             <p>Person:  {{person.name}}</p>
         {% endfor %}
+
+        <h3>List of People on planet 1</h3>
+        {% for person in people %}
+            <p>Person:  {{person.homeworld.rsplit("/")[5]}}</p>
+            <button onclick="window.location='{{url_for('people_planet_details', planet_id=person.homeworld.rsplit("/")[5])}}';">Visit Page Now</button>
+        {% endfor %}
+
+        <h3>List of Both</h3>
+        {% for person in people %}
+            {% for planet in planets %}
+                {% if person['homeworld'] == planet['url'] %}
+                <p>match</p>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+
     </div>
     <footer class="footer">
       <div class="container text-center">

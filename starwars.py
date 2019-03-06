@@ -34,6 +34,14 @@ def get_people():
     json_response = requests.get(PEOPLE_URL).json()
     return json_response
 
+def get_person(person_id):
+    '''
+    Get json planet info
+    :return: json response
+    '''
+    json_response = requests.get(PEOPLE_URL + str(person_id)).json()
+    return json_response
+
 def get_films():
     '''
     Get json film info
@@ -50,3 +58,5 @@ def get_ship(ship_id):
     '''
     json_response = requests.get(SHIPS_URL + str(ship_id)).json()
     return json_response
+
+

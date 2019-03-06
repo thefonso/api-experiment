@@ -9,12 +9,17 @@ def index():
     context = {
         "films": get_films()['count'],
         "planets": get_planets()['results'],
-        "planet_name": get_planet(1)['name'],
-        "ship_length": get_ship(3)['length'],
-        "ship_name": get_ship(3)['name'],
-        "people": get_people()['results']
+        "people": get_people()['results'],
+        "both": get_planets()['results'] + get_people()['results'],
+        "pp": []
     }
-    return render_template("index.html", **context)
+    return render_template("index.html", **context, )
+
+
+@app.route('/people_planet_details/<int:planet_id>')
+def people_planet_details(person_id, planet_id):
+    details = get_planet(planet_id)['name']
+    return render_template("people.html", details=details)
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080, host='127.0.0.1')
