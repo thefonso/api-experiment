@@ -3,6 +3,7 @@ import requests_cache
 
 requests_cache.install_cache('api_cache')
 
+operator = 0
 BASE_URL = 'http://swapi.co/api/'
 PLANET_URL = BASE_URL + 'planets/'
 SHIPS_URL = BASE_URL + 'starships/'

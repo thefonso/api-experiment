@@ -11,7 +11,6 @@ def index():
         "planets": get_planets()['results'],
         "people": get_people()['results'],
         "both": get_planets()['results'] + get_people()['results'],
-        "pp": []
     }
     return render_template("index.html", **context, )
 

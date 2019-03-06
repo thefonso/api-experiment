@@ -32,9 +32,11 @@
 
         <h3>List of Both</h3>
         {% for person in people %}
+            {% set newList = [] %}
             {% for planet in planets %}
                 {% if person['homeworld'] == planet['url'] %}
-                <p>match</p>
+{#                    append to new array#}
+                    <p>match</p>
                 {% endif %}
             {% endfor %}
         {% endfor %}
