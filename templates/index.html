@@ -14,9 +14,14 @@
     <div class = "jumbotron text-center">
         <h1>The Force is strong with this one....</h1>
 {#        <p>Planet:  {{planet_name}}</p>#}
-{#        <p>Planets:  {{planets}}</p>#}
+
 {#        <p>Length of {{ship_name}}:  {{ship_length}}</p>#}
+        <h3>List of Planets</h3>
+        {% for planet in planets %}
+            <p>Planet:  {{planet.name}}</p>
+        {% endfor %}
         <p>Number of Films:  {{films}}</p>
+        <h3>List of People</h3>
         {% for person in people %}
             <p>Person:  {{person.name}}</p>
         {% endfor %}
