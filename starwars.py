@@ -7,6 +7,7 @@ BASE_URL = 'http://swapi.co/api/'
 PLANET_URL = BASE_URL + 'planets/'
 SHIPS_URL = BASE_URL + 'starships/'
 FILM_URL = BASE_URL + 'films/'
+PEOPLE_URL = BASE_URL + 'people/'
 
 def get_planet(planet_id):
     '''
@@ -15,6 +16,22 @@ def get_planet(planet_id):
     :return: json response
     '''
     json_response = requests.get(PLANET_URL + str(planet_id)).json()
+    return json_response
+
+def get_planets():
+    '''
+    Get json planet info
+    :return: json response
+    '''
+    json_response = requests.get(PLANET_URL).json()
+    return json_response
+
+def get_people():
+    '''
+    Get json planet info
+    :return: json response
+    '''
+    json_response = requests.get(PEOPLE_URL).json()
     return json_response
 
 def get_films():

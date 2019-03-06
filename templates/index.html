@@ -13,9 +13,13 @@
 <body>
     <div class = "jumbotron text-center">
         <h1>The Force is strong with this one....</h1>
-        <p>Planet:  {{planet_name}}</p>
-        <p>Length of {{ship_name}}:  {{ship_length}}</p>
+{#        <p>Planet:  {{planet_name}}</p>#}
+{#        <p>Planets:  {{planets}}</p>#}
+{#        <p>Length of {{ship_name}}:  {{ship_length}}</p>#}
         <p>Number of Films:  {{films}}</p>
+        {% for person in people %}
+            <p>Person:  {{person.name}}</p>
+        {% endfor %}
     </div>
     <footer class="footer">
       <div class="container text-center">
