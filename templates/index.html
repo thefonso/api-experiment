@@ -25,23 +25,8 @@
         {% endfor %}
 
         <h3>List of People on planet</h3>
-        {% for person in people %}
-            <p>Person:  {{person.homeworld.rsplit("/")[5]}}</p>
-            <button onclick="window.location='{{url_for('people_planet_details', planet_id=person.homeworld.rsplit("/")[5])}}';">Visit Page Now</button>
-        {% endfor %}
-
-        <h3>List of Both</h3>
         {% for item in test %}
             {{ item }}
-        {% endfor %}
-        {% for person in people %}
-            {% set newList = [] %}
-            {% for planet in planets %}
-                {% if person['homeworld'] == planet['url'] %}
-{#                    append to new array#}
-                    <p>match</p>
-                {% endif %}
-            {% endfor %}
         {% endfor %}
 
     </div>

@@ -1,24 +1,15 @@
 import random
 from flask import Flask, render_template
 from starwars import (get_films, get_planet, get_planets, get_ship, get_people)
-from collections import defaultdict
 
 app = Flask(__name__)
 
 list2 = get_planets()['results']
 list1 = get_people()['results']
 
-# d = defaultdict(dict)
-# for l in (l1, l2):
-#     for elem in l:
-#             d[elem['name']].update(elem)
-# l3 = d.values()
-
 list3 = [{'name': x['name'], 'persons': [y['name'] for y in list1 if y['homeworld'] == x['url']]} for x in list2]
 
 list3 = [x for x in list3 if x['persons']]
-
-# print(list3)
 
 
 @app.route('/')
