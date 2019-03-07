@@ -5,14 +5,20 @@ from collections import defaultdict
 
 app = Flask(__name__)
 
-l1 = [{"index":1, "b":2}, {"index":2, "b":3}, {"index":3, "green":"eggs"}]
-l2 = [{"index":1, "c":4}, {"index":2, "c":5}]
+list2 = get_planets()['results']
+list1 = get_people()['results']
 
-d = defaultdict(dict)
-for l in (l1, l2):
-    for elem in l:
-        d[elem['index']].update(elem)
-l3 = d.values()
+# d = defaultdict(dict)
+# for l in (l1, l2):
+#     for elem in l:
+#             d[elem['name']].update(elem)
+# l3 = d.values()
+
+list3 = [{'name': x['name'], 'persons': [y['name'] for y in list1 if y['homeworld'] == x['url']]} for x in list2]
+
+list3 = [x for x in list3 if x['persons']]
+
+# print(list3)
 
 
 @app.route('/')
@@ -21,7 +27,7 @@ def index():
         "planets": get_planets()['results'],
         "people": get_people()['results'],
         "both": get_planets()['results'] + get_people()['results'],
-        "test": l3,
+        "test": list3,
     }
     return render_template("index.html", **context, )
 
