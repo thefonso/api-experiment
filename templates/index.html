@@ -12,25 +12,28 @@
 </head>
 <body>
     <div class = "jumbotron text-center">
-        <h1>The Force is strong with this one....</h1>
-{#        <p>Planet:  {{planet_name}}</p>#}
+        <h2>The Force is strong with this one....</h2>
+
         <h3>List of Planets</h3>
         {% for planet in planets %}
             <p>Planet:  {{planet.name}}</p>
         {% endfor %}
-        <p>Number of Films:  {{films}}</p>
+
         <h3>List of People</h3>
         {% for person in people %}
             <p>Person:  {{person.name}}</p>
         {% endfor %}
 
-        <h3>List of People on planet 1</h3>
+        <h3>List of People on planet</h3>
         {% for person in people %}
             <p>Person:  {{person.homeworld.rsplit("/")[5]}}</p>
             <button onclick="window.location='{{url_for('people_planet_details', planet_id=person.homeworld.rsplit("/")[5])}}';">Visit Page Now</button>
         {% endfor %}
 
         <h3>List of Both</h3>
+        {% for item in test %}
+            {{ item }}
+        {% endfor %}
         {% for person in people %}
             {% set newList = [] %}
             {% for planet in planets %}
